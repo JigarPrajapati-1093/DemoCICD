@@ -1,6 +1,10 @@
 name: Swift
 
 on:
+
+
+
+  
   push:
     branches: [ "main" ]
   pull_request:
@@ -12,8 +16,13 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - name: Select Xcode
+      run: sudo xcode-Select -switch /Application/Xcode
+    - name: Xcode version
+      run: /usr/bin/xcodebuild - version
+    - name: Build archive
+      run: |
+            xcodebuild -sdk iphoneos - project DemoCICD/DemoCICD.xcodeproj \
+            - configuration Release -scheme DemoCICD \
+            - derivedDataPath
+    
