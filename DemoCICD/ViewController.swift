@@ -9,9 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var Aray = [1,2,3,4]
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hello check heelo")
+        
+        print("hello check heelo \(Aray[6])")
         // Do any additional setup after loading the view.
     }
 
